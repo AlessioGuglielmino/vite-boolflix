@@ -1,6 +1,8 @@
 <script>
 import { store } from "./data/store";
 import AppHeader from "./components/AppHeader.vue";
+import AppMain from "./components/AppMain.vue";
+
 import axios from "axios";
 
 export default {
@@ -9,7 +11,10 @@ export default {
       store,
     };
   },
+  // COMPONENTS
+  components: { AppHeader, AppMain },
 
+  // METODI
   methods: {
     fetchCard(endpoint) {
       axios.get(endpoint).then((response) => {
@@ -24,13 +29,12 @@ export default {
       this.fetchCard(customUrl);
     },
   },
-
-  components: { AppHeader },
 };
 </script>
 
 <template>
   <AppHeader @form-input="filter" />
+  <AppMain />
 </template>
 
 <style></style>

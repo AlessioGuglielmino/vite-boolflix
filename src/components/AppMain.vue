@@ -1,11 +1,14 @@
 <script>
+import AppMovieList from "./AppMovieList.vue";
+
 export default {
   data() {
     return {};
   },
+  components: { AppMovieList },
 };
 </script>
 
-<template></template>
+<template><AppMovieList /></template>
 
 <style></style>
