@@ -1,8 +1,12 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      elementSearch: "",
+    };
   },
+
+  emits: ["form-input"],
 };
 </script>
 
@@ -10,22 +14,19 @@ export default {
   <header>
     <div class="container d-flex justify-content-between">
       <h1>Boolflix</h1>
-      <div class="input-group mb-3 w-50">
-        <input
-          type="text"
-          class="form-control"
-          placeholder="Recipient's username"
-          aria-label="Recipient's username"
-          aria-describedby="button-addon2"
-        />
-        <button
-          class="btn btn-outline-secondary"
-          type="button"
-          id="button-addon2"
-        >
-          Serch
-        </button>
-      </div>
+      <form class="w-25" @submit.prevent="$emit('form-input', elementSearch)">
+        <div class="input-group">
+          <input
+            v-model="elementSearch"
+            type="text"
+            class="form-control"
+            placeholder="Cerca il titolo del film..."
+          />
+          <button class="btn btn-danger" type="submit" id="button-addon2">
+            Cerca
+          </button>
+        </div>
+      </form>
     </div>
   </header>
 </template>
