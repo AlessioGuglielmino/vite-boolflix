@@ -24,6 +24,7 @@ export default {
         :original_title="movie.original_title"
         :original_language="movie.original_language"
         :vote_average="movie.vote_average"
+        :poster_path="movie.poster_path"
       />
     </div>
   </div>

@@ -5,6 +5,7 @@ export default {
     original_title: String,
     original_language: String,
     vote_average: String,
+    poster_path: String,
   },
 
   data() {
@@ -18,6 +19,17 @@ export default {
 <template>
   <div class="card">
     <ul>
+      <li v-if="poster_path">
+        <img
+          class="poster"
+          :src="'https://image.tmdb.org/t/p/w342/' + poster_path"
+          alt=""
+        />
+      </li>
+      <li v-else>
+        <img class="poster" src="../../public/nopic.jpg" alt="" />
+      </li>
+
       <li>
         {{ title }}
       </li>
@@ -25,7 +37,11 @@ export default {
         {{ original_title }}
       </li>
       <li v-if="lingue.includes(original_language)">
-        <img :src="'./bandiere/' + original_language + '.png'" alt="" />
+        <img
+          class="flag"
+          :src="'./bandiere/' + original_language + '.png'"
+          alt=""
+        />
       </li>
       <li>
         {{ vote_average }}
@@ -42,7 +58,7 @@ export default {
 li {
   list-style: none;
 }
-img {
-  width: 30px;
+.flag {
+  width: 40px;
 }
 </style>
