@@ -6,7 +6,7 @@ export default {
     };
   },
 
-  emits: ["form-input"],
+  emits: ["form-input", "form-input-series"],
 };
 </script>
 
@@ -14,7 +14,11 @@ export default {
   <header>
     <div class="container d-flex justify-content-between">
       <h1>Boolflix</h1>
-      <form class="w-25" @submit.prevent="$emit('form-input', elementSearch)">
+      <form
+        class="w-25"
+        @submit.prevent="$emit('form-input', elementSearch)"
+        @submit="$emit('form-input-series', elementSearch)"
+      >
         <div class="input-group">
           <input
             v-model="elementSearch"

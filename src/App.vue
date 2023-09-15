@@ -16,24 +16,34 @@ export default {
 
   // METODI
   methods: {
-    fetchCard(endpoint) {
+    fetchMovie(endpoint) {
       axios.get(endpoint).then((response) => {
         this.store.Movies = response.data.results;
-        console.log(this.store.Movies);
+      });
+    },
+    fetchSeries(endpoint) {
+      axios.get(endpoint).then((response) => {
+        this.store.Series = response.data.results;
+        console.log(this.store.Series);
       });
     },
 
-    filter(elementSearch) {
+    filterMovie(elementSearch) {
       const customUrl = this.store.apiUri + elementSearch + this.store.apiKey;
-      console.log(customUrl);
-      this.fetchCard(customUrl);
+      this.fetchMovie(customUrl);
+    },
+
+    filterSeries(elementSearch) {
+      const customUrl =
+        this.store.apiUriSeries + elementSearch + this.store.apiKey;
+      this.fetchSeries(customUrl);
     },
   },
 };
 </script>
 
 <template>
-  <AppHeader @form-input="filter" />
+  <AppHeader @form-input="filterMovie" @form-input-series="filterSeries" />
   <AppMain />
 </template>
 
