@@ -18,7 +18,7 @@ export default {
 
 <template>
   <div class="card d-flex justify-content-center">
-    <ul>
+    <ul class="d-flex flex-column align-items-center">
       <li v-if="poster_path">
         <img :src="'https://image.tmdb.org/t/p/w342/' + poster_path" alt="" />
       </li>
@@ -50,6 +50,9 @@ export default {
 <style>
 .card {
   background-color: antiquewhite;
+}
+ul {
+  padding: 1rem;
 }
 
 li {

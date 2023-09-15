@@ -13,7 +13,7 @@ export default {
 </script>
 
 <template>
-  <div class="container my-5">
+  <div class="container">
     <div
       class="row d-flex justify-content-center gap-2 g-2 row-cols-2 row-cols-md-3 row-cols-lg-4"
     >

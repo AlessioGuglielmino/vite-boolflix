@@ -44,7 +44,13 @@ export default {
 
 <template>
   <AppHeader @form-input="filterMovie" @form-input-series="filterSeries" />
-  <AppMain />
+  <main>
+    <AppMain />
+  </main>
 </template>
 
-<style></style>
+<style>
+main {
+  background-color: gray;
+}
+</style>

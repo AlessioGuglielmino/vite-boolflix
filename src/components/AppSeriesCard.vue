@@ -54,6 +54,9 @@ export default {
 .card {
   background-color: antiquewhite;
 }
+ul {
+  padding: 1rem;
+}
 
 li {
   list-style: none;
