@@ -13,10 +13,8 @@ export default {
 </script>
 
 <template>
-  <hr />
-
   <div class="container my-5">
-    <h3>Series List:</h3>
+    <h3 v-show="store.Series.length > 0">Series List:</h3>
 
     <div
       class="row d-flex justify-content-center gap-2 g-2 row-cols-2 row-cols-md-3 row-cols-lg-4"
@@ -35,4 +33,8 @@ export default {
   </div>
 </template>
 
-<style></style>
+<style lang="scss">
+h3 {
+  color: #e50914;
+}
+</style>

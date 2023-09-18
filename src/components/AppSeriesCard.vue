@@ -45,11 +45,16 @@ export default {
               alt=""
             />
           </li>
-          <li v-for="">
-            <!-- <font-awesome-icon icon="fa-regular fa-star" />
-            <font-awesome-icon icon="fa-solid fa-star" /> -->
+          <li>
+            <font-awesome-icon
+              icon="fa-solid fa-star"
+              v-for="star in vote_average"
+            />
 
-            {{ vote_average }}
+            <font-awesome-icon
+              icon="fa-regular fa-star"
+              v-for="star in 5 - vote_average"
+            />
           </li>
 
           <li>Overview : {{ overview }}</li>
@@ -127,7 +132,7 @@ export default {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #e50914;
+  background: ;
 }
 
 /* Handle on hover */

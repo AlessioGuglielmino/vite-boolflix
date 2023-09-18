@@ -14,7 +14,7 @@ export default {
 
 <template>
   <div class="container">
-    <h3>Movie List:</h3>
+    <h3 v-show="store.Movies.length > 0">Movie List:</h3>
     <div
       class="row d-flex justify-content-center gap-2 g-2 row-cols-2 row-cols-md-3 row-cols-lg-4"
     >
@@ -32,8 +32,8 @@ export default {
   </div>
 </template>
 
-<style>
+<style lang="scss" scoped>
 h3 {
-  color: bisque;
+  color: #e50914;
 }
 </style>

@@ -18,5 +18,6 @@ export default {
 main {
   padding-top: 20px;
   background-image: url("/background.jpg");
+  min-height: 100vh;
 }
 </style>
