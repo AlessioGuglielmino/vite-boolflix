@@ -49,8 +49,4 @@ export default {
   </main>
 </template>
 
-<style>
-main {
-  background-color: gray;
-}
-</style>
+<style></style>

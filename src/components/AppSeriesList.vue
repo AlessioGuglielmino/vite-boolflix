@@ -16,6 +16,8 @@ export default {
   <hr />
 
   <div class="container my-5">
+    <h3>Series List:</h3>
+
     <div
       class="row d-flex justify-content-center gap-2 g-2 row-cols-2 row-cols-md-3 row-cols-lg-4"
     >
@@ -25,8 +27,9 @@ export default {
         :title="serie.name"
         :original_title="serie.original_name"
         :original_language="serie.original_language"
-        :vote_average="serie.vote_average"
+        :vote_average="Math.ceil(serie.vote_average / 2)"
         :poster_path="serie.poster_path"
+        :overview="serie.overview"
       />
     </div>
   </div>

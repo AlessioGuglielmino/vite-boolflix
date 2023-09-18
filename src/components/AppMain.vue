@@ -10,6 +10,13 @@ export default {
 };
 </script>
 
-<template><AppMovieList /> <AppSeriesList /></template>
+<template>
+  <main><AppMovieList /> <AppSeriesList /></main>
+</template>
 
-<style></style>
+<style>
+main {
+  padding-top: 20px;
+  background-image: url("/background.jpg");
+}
+</style>

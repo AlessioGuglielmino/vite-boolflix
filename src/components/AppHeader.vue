@@ -38,7 +38,7 @@ export default {
 <style>
 header {
   background-color: black;
-  color: red;
+  color: #e50914;
   padding: 30px;
 }
 </style>

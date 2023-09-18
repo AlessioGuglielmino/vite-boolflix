@@ -6,6 +6,7 @@ export default {
     original_language: String,
     vote_average: String,
     poster_path: String,
+    overview: String,
   },
 
   data() {
@@ -17,42 +18,128 @@ export default {
 </script>
 
 <template>
-  <div class="card d-flex justify-content-center">
-    <ul class="d-flex flex-column align-items-center">
-      <li v-if="poster_path">
-        <img :src="'https://image.tmdb.org/t/p/w342/' + poster_path" alt="" />
-      </li>
-      <li v-else>
-        <img class="poster" src="../../public/nopic.jpg" alt="" />
-      </li>
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <ul>
+          <li v-if="poster_path">
+            <img
+              :src="'https://image.tmdb.org/t/p/w342/' + poster_path"
+              alt=""
+            />
+          </li>
+          <li v-else>
+            <img class="poster" src="../../public/nopic.jpg" alt="" />
+          </li>
+        </ul>
+      </div>
+      <div class="flip-card-back">
+        <ul>
+          <li>Titolo : {{ title }}</li>
+          <li>Titolo Originale : {{ original_title }}</li>
+          <li v-if="lingue.includes(original_language)">
+            <img
+              class="flag"
+              :src="'./bandiere/' + original_language + '.png'"
+              alt=""
+            />
+          </li>
 
-      <li>
-        {{ title }}
-      </li>
-      <li>
-        {{ original_title }}
-      </li>
-      <li v-if="lingue.includes(original_language)">
-        <img
-          class="flag"
-          :src="'./bandiere/' + original_language + '.png'"
-          alt=""
-        />
-      </li>
+          <li>
+            {{ vote_average }}
+          </li>
 
-      <li>
-        {{ vote_average }}
-      </li>
-    </ul>
+          <li>Overview : {{ overview }}</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
 <style>
-.card {
-  background-color: antiquewhite;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+
+.flip-card {
+  background-color: transparent;
+  width: 400px;
+  height: 500px;
+  perspective: 1000px; /* Remove this if you don't want the 3D effect */
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+}
+
+/* Style the front side (fallback if image is missing) */
+.flip-card-front {
+  background-color: rgb(10, 7, 20);
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+
+/* Style the back side */
+.flip-card-back {
+  background-color: rgb(10, 7, 20);
+  color: white;
+  transform: rotateY(180deg);
+  padding: 1rem;
+  overflow: auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #e50914;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: e50914;
+}
+
 ul {
   padding: 1rem;
+  height: 500px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
 }
 
 li {
@@ -61,6 +148,11 @@ li {
 .flag {
   width: 40px;
 }
+
+.card {
+  background-color: antiquewhite;
+}
+
 img {
   width: 100%;
 }
